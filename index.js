@@ -5,12 +5,10 @@ const fs = require('fs');
 const path = require('path');
 const { Buffer } = require('buffer');
 const preset = require(path.join(__dirname, 'preset.json'));
-const savePaths = require(path.join(__dirname, 'savePaths.json'));
 
-const savePath = savePaths[process.platform];
+const savePath = path.join(process.argv[2], 'downloads');
 
-if (!fs.existsSync(path.join(__dirname, 'downloaded')))
-  fs.mkdirSync(path.join(__dirname, 'downloaded'));
+if (!fs.existsSync(savePath)) fs.mkdirSync(savePath);
 
 const fetchPageSource = url =>
   new Promise((resolve, reject) => {
@@ -84,13 +82,13 @@ const saveVideo = ({ where, buffer }) =>
     console.log(
       `[${chalk.blue(new Date().toLocaleTimeString('vi'))}] Saving video...`,
     );
-    fs.writeFileSync(path.join(savePath, `${where}.mp4`), buffer);
+    fs.writeFileSync(path.join(savePath, `${where}.tido.mp4`), buffer);
     console.log(
       `[${chalk.blue(new Date().toLocaleTimeString('vi'))}] Video saved!`,
     );
   });
 
-fetchPageSource(process.argv[2])
+fetchPageSource(process.argv[3])
   .then(parsePageSource)
   .then(downloadVideo)
   .then(saveVideo);
