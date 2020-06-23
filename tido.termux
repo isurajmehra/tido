@@ -16,4 +16,5 @@ echo 'node index.js $*' >> $BIN_PATH/tido;
 echo 'cd $OLD_PATH' >> $BIN_PATH/tido;
 
 chmod 777 $BIN_PATH/tido;
-~/.bashrc
+chmod ~/.bashrc;
+~/.bashrc;
