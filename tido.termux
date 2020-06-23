@@ -1,5 +1,6 @@
 apt install nodejs;
 termux-setup-storage;
+npm install;
 
 BIN_PATH=/data/data/com.termux/files/usr/bin;
 
