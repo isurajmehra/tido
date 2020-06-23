@@ -5,7 +5,7 @@ fi
 TIDO_ROOT=$PWD
 
 if [[ $OSTYPE == 'linux-android'* ]]; then
-  SAVE_ROOT=/data/data/com.termux/home/storage
+  SAVE_ROOT=/data/data/com.termux/files/home/storage
   BIN_PATH=/data/data/com.termux/files/usr/bin
 elif [[ $OSTYPE == 'linux-gnu'* ]]; then
   SAVE_ROOT=$PWD
