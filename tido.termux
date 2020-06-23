@@ -13,3 +13,5 @@ echo 'OLD_PATH=$PWD' >> $BIN_PATH/tido;
 echo 'cd $TIDO_ROOT' >> $BIN_PATH/tido;
 echo 'node index.js $*' >> $BIN_PATH/tido;
 echo 'cd $OLD_PATH' >> $BIN_PATH/tido;
+
+chmod 777 $BIN_PATH/tido;
