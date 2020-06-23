@@ -1,15 +1,15 @@
-apt install nodejs
-BIN_PATH=/data/data/com.termux/files/usr/bin
+apt install nodejs;
+termux-setup-storage;
 
-echo 'export TIDO_ROOT='$PWD >> ~/.bashrc
+BIN_PATH=/data/data/com.termux/files/usr/bin;
 
-termux-setup-storage
+echo 'export TIDO_ROOT='$PWD >> ~/.bashrc;
 
-touch $BIN_PATH/tido
-rm $BIN_PATH/tido
-touch $BIN_PATH/tido
+touch $BIN_PATH/tido;
+rm $BIN_PATH/tido;
+touch $BIN_PATH/tido;
 
-echo 'OLD_PATH=$PWD' >> $BIN_PATH/tido
-echo 'cd $TIDO_ROOT` >> $BIN_PATH/tido
-echo 'node index.js $*' >> $BIN_PATH/tido
-echo 'cd $OLD_PATH` >> $BIN_PATH/tido
+echo 'OLD_PATH=$PWD' >> $BIN_PATH/tido;
+echo 'cd $TIDO_ROOT' >> $BIN_PATH/tido;
+echo 'node index.js $*' >> $BIN_PATH/tido;
+echo 'cd $OLD_PATH' >> $BIN_PATH/tido;
