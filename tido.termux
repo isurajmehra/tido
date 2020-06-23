@@ -4,6 +4,7 @@ npm install;
 
 BIN_PATH=/data/data/com.termux/files/usr/bin;
 
+export TIDO_ROOT=$PWD;
 echo 'export TIDO_ROOT='$PWD >> ~/.bashrc;
 
 touch $BIN_PATH/tido;
