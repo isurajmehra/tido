@@ -5,6 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const { Buffer } = require('buffer');
 const preset = require(path.join(__dirname, 'preset.json'));
+const savePaths = require(path.join(__dirname, 'savePaths.json'));
+
+const savePath = savePaths[process.platform];
 
 if (!fs.existsSync(path.join(__dirname, 'downloaded')))
   fs.mkdirSync(path.join(__dirname, 'downloaded'));
@@ -47,7 +50,7 @@ const parsePageSource = source =>
     const videoDetail = JSON.parse(detail.html());
     const videoURL = videoDetail.contentUrl;
     const videoName = videoDetail.name.slice(0, 10);
-    resolve({ name: videoName, url: videoURL });
+    resolve({ name: `${+new Date()}`, url: videoURL });
   });
 
 const downloadVideo = ({ name, url }) =>
@@ -81,10 +84,7 @@ const saveVideo = ({ where, buffer }) =>
     console.log(
       `[${chalk.blue(new Date().toLocaleTimeString('vi'))}] Saving video...`,
     );
-    fs.writeFileSync(
-      path.join(__dirname, 'downloaded', `${where}.mp4`),
-      buffer,
-    );
+    fs.writeFileSync(path.join(savePath, `${where}.mp4`), buffer);
     console.log(
       `[${chalk.blue(new Date().toLocaleTimeString('vi'))}] Video saved!`,
     );
