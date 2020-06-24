@@ -24,6 +24,14 @@ else
   echo 'Node.JS is installed'
 fi
 
+if type -P npm > /dev/null == ''; then
+  echo 'NPM is not installed. Installing NPM...'
+
+  apt install npm
+else 
+  echo 'NPM is installed'
+fi
+
 
 if [[ $OSTYPE == 'linux-android'* ]]; then
   termux-setup-storage
